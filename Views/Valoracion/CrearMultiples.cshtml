@@ -1,0 +1,57 @@
+﻿@model Restauranteprueba.Models.Valoracion
+@{
+	ViewData["Title"] = "Agregar Multiples Valoraciones";
+	Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="CrearMultiples">
+	<div class="container">
+		<div class="col-6">
+			<h2>Agregar multiples Valoraciones</h2>
+		</div>
+		<div class="row mt-5">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="col-12">
+				@for (int i = 0; i <= 4; i++)
+				{
+					<div class="container border bg-opacity-50 mt-4 p-4">
+
+						<div class="row mt-2">
+							<div class="col-10">
+								<label asp-for="IdCliente" class="form-label"></label>
+								<input asp-for="IdCliente" class="form-control" />
+								<span asp-validation-for="IdCliente" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="col-10">
+								<label asp-for="Comentario" class="form-label"></label>
+								<input asp-for="Comentario" class="form-control" />
+								<span asp-validation-for="Comentario" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="col-10">
+								<label asp-for="Puntuacion" class="form-label"></label>
+								<input asp-for="Puntuacion" class="form-control" />
+								<span asp-validation-for="Puntuacion" class="text-danger"></span>
+							</div>
+						</div>
+						<div class="row mt-2">
+							<div class="col-10">
+								<label asp-for="FechaValoracion" class="form-label"></label>
+								<input asp-for="FechaValoracion" class="form-control" />
+								<span asp-validation-for="FechaValoracion" class="text-danger"></span>
+							</div>
+						</div>
+					</div>
+				}
+				<div class="row mt-5">
+					<div class="col-4">
+						<button class="btn btn-secondary text-white form-control" type="submit">Guardar &nbsp;</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</form>

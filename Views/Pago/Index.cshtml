@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Restauranteprueba.Models.Pago>
+@{
+	ViewData["Title"] = "Lista de Pagos";
+	Layout = "/Views/Shared/_Layout.cshtml";
+}
+<h2>Lista de clientes</h2>
+
+<div class="container">
+	<div class="col-3">
+		<a class="btn btn-primary text-white from-control" asp-action="Crear"> Agregar pago</a>
+		<div class="row mt-2"></div>
+		<a class="btn btn-primary text-white from-control" asp-action="CrearMultiples"> Agregar multiples pagos</a>
+	</div>
+	<div class="row mt-5">
+		<div class="col-12">
+			@if (Model.Count() > 0)
+			{
+				<table class="table table-striped border">
+					<thead>
+						<tr>
+							<th>IdPago</th>
+							<th>IdOrden</th>
+							<th>MetodoPago</th>
+							<th>MontoPagado</th>
+							<th>FechaHoraPago</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var pago in Model)
+						{
+							<tr>
+								<td>@pago.IdPago</td>
+								<td>@pago.IdOrden</td>
+								<td>@pago.MetodoPago</td>
+								<td>@pago.MontoPagado</td>
+								<td>@pago.FechaPago</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			}
+			else
+			{
+				<p>No hay pagos a listar</p>
+			}
+		</div>
+	</div>
+</div>

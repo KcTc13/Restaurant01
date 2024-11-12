@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Restauranteprueba.Models.Orden>
+@{
+	ViewData["Title"] = "Lista de Ordenes";
+	Layout = "/Views/Shared/_Layout.cshtml";
+}
+<h2>Lista de ordenes</h2>
+
+<div class="container">
+	<div class="col-3">
+		<a class="btn btn-primary text-white from-control" asp-action="Crear"> Agregar orden</a>
+		<div class="row mt-2"></div>
+		<a class="btn btn-primary text-white from-control" asp-action="CrearMultiples"> Agregar multiples ordenes</a>
+	</div>
+	<div class="row mt-5">
+		<div class="col-12">
+			@if (Model.Count() > 0)
+			{
+				<table class="table table-striped border">
+					<thead>
+						<tr>
+							<th>IdOrden</th>
+							<th>IdEmpleado</th>
+							<th>IdCliente</th>
+							<th>IdMesa</th>
+							<th>FechaOrden</th>
+							<th>EstadoOrden</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var orden in Model)
+						{
+							<tr>
+								<td>@orden.IdOrden</td>
+								<td>@orden.IdEmpleado</td>
+								<td>@orden.IdCliente</td>
+								<td>@orden.IdMesa</td>
+								<td>@orden.FechaOrden</td>
+								<td>@orden.EstadoOrden</td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			}
+			else
+			{
+				<p>No hay ordenes a listar</p>
+			}
+		</div>
+	</div>
+</div>
